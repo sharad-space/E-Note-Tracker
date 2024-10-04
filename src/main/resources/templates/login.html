@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{base:: layout(~{::title},~{::section} )}">
+>
+<head>
+<meta charset="UTF-8">
+<title>Login Page</title>
+</head>
+<body>
+	<section>
+		<div class="container mt-2">
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<div class="card">
+						<div class="card-header text-center">
+							<h3>
+								<i class="fa-solid fa-gears"></i>LOGIN
+							</h3>
+							<th:block th:if="${param.error}">
+							<p class="text-center text-danger fs-5">[[${session.SPRING_SECURITY_LAST_EXCEPTION.Message}]]</p>
+							</th:block>
+							
+							<th:block th:if="${param.logout}">
+							<p class="text-center text-success fs-5">Logout Successfully</p>
+							</th:block>
+						</div>
+						<div class="card-body">
+							<form action="userLogin" method="post">
+
+								<div class="mb-3">
+									<label>Email</label> <input type="email"
+										class="form-control" name="username">
+								</div>
+
+								<div class="mb-3">
+									<label>Password</label> <input type="password"
+										class="form-control" name="password">
+								</div>
+                               
+								<div class="md-3 text-center">
+								<button class="btn btn-primary clo-md-12">Login</button>
+								
+								</div>
+							</form>
+						</div>
+						<div class="card-footer text-center">
+						<p class="fs-6">
+						Don't Have Account <a href="register" class="text-decoration-none">Register</a>
+						
+						</p>
+						
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+</body>
+</html>
